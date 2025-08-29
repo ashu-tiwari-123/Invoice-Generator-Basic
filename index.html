@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-," />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart GST Invoice Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a","950":"#172554"}
+            }
+          }
+        }
+      }
+    </script>
+  <style>
+    /* Improve input readability */
+    input, select, textarea {
+      background-color: #f9fafb; /* A very light gray */
+      color: #111827; /* Dark gray for text */
+    }
+    input:focus, select:focus, textarea:focus {
+        background-color: #ffffff;
+    }
+    
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .invoice {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 20mm;
+        margin: 0;
+        box-sizing: border-box;
+        box-shadow: none;
+        border: none;
+        page-break-after: always;
+        position: relative;
+      }
+      #invoice-preview::before {
+        content: attr(data-copy-type);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        font-size: 6rem;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0.08);
+        z-index: 1;
+        text-align: center;
+        pointer-events: none;
+        white-space: nowrap;
+        font-family: Arial, sans-serif;
+      }
+      .invoice table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .invoice th, .invoice td {
+        border: 1px solid #000;
+        padding: 6px;
+        text-align: left;
+      }
+      .invoice .text-right {
+        text-align: right;
+      }
+      .invoice .text-center {
+        text-align: center;
+      }
+      .invoice .divide-y > :not([hidden]) ~ :not([hidden]) {
+        border-top-width: 0px;
+        border-bottom-width: 0px;
+      }
+      .invoice .bg-gray-100 {
+        background-color: #f3f4f6 !important;
+      }
+    }
+  </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.16.0",
+    "uuid": "https://aistudiocdn.com/uuid@^11.1.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

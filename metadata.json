@@ -1,0 +1,5 @@
+{
+  "name": "Smart GST Invoice Generator",
+  "description": "An intelligent invoice management system that uses AI to generate professional, GST-compliant invoices from natural language descriptions. Instantly create and manage invoices, customers, and items with smart data extraction and tax calculation.",
+  "requestFramePermissions": []
+}
